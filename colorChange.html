@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0271217e1a.js" crossorigin="anonymous"></script>
+    <title>Color Change</title>
+</head>
+<style>
+    #container{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(241, 240, 240);
+        gap: 20px;
+    }
+    #colorBox{
+        width: 350px;
+        height: 60%;
+        box-shadow: 0 0 5px 2px white;
+        color: ;
+    }
+    button{
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+</style>
+<body>
+    <div id="container">
+        <button id="decrease"> <i class="fa-solid fa-angle-left"></i> </button>
+        <div id="colorBox"></div>
+        <button id="increase"> <i class="fa-solid fa-angle-right"></i> </button>
+    </div>
+</body>
+</html>
+<script>
+    let colorArray = ['purple', 'orange', 'yellow', 'cyan', 'cornflowerblue', 'darkblue']
+
+    let a = 0
+
+    document.querySelector('#increase').addEventListener('click', ()=>{
+        document.getElementById('colorBox').style.backgroundColor = colorArray[a]
+
+        a = ++a
+
+        if (a === colorArray.length) {
+        a = 0
+        };
+    })
+
+    document.querySelector('#decrease').addEventListener('click', ()=>{
+        document.getElementById('colorBox').style.backgroundColor = colorArray[a]
+
+        a = --a
+
+        if (a === -1) {
+        a = colorArray.length-1
+        };
+    })
+ 
+    setInterval(() => {
+    document.getElementById('colorBox').style.backgroundColor = colorArray[a]
+
+        a = ++a
+
+    if (a === colorArray.length) {
+        a = 0
+    }
+
+ }, 4000);
+    
+    
+        
+</script>
